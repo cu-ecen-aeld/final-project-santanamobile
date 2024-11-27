@@ -10,6 +10,7 @@ BR2_TARGET_GENERIC_ISSUE="Welcome to BeagleNAS"
 BR2_ROOTFS_DEVICE_CREATION_DYNAMIC_MDEV=y
 BR2_TARGET_GENERIC_ROOT_PASSWD="beaglepass"
 BR2_TARGET_TZ_INFO=y
+BR2_ROOTFS_OVERLAY="../base_external/rootfs_overlay_beaglebone"
 BR2_ROOTFS_POST_BUILD_SCRIPT="../base_external/sancloud/post-build.sh"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="support/scripts/genimage.sh"
 BR2_ROOTFS_POST_SCRIPT_ARGS="-c ../base_external/sancloud/genimage.cfg"
