@@ -1,4 +1,8 @@
 .vscode
 .sonarlint
+build/
 run-sonarscanner.sh
 *~
+*.o
+*.log
+
