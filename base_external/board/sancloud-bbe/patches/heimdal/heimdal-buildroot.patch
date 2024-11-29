@@ -1,0 +1,13 @@
+diff --git a/package/heimdal/heimdal.mk b/package/heimdal/heimdal.mk
+index 786d94a1aa..b968661d77 100644
+--- a/package/heimdal/heimdal.mk
++++ b/package/heimdal/heimdal.mk
+@@ -29,7 +29,7 @@ HOST_HEIMDAL_CONF_OPTS = \
+ 	--disable-heimdal-documentation
+ 
+ # Don't use compile_et from e2fsprogs as it raises a build failure with samba4
+-HOST_HEIMDAL_CONF_ENV = ac_cv_prog_COMPILE_ET=no MAKEINFO=true
++HOST_HEIMDAL_CONF_ENV = ac_cv_prog_COMPILE_ET=no MAKEINFO=true ac_cv_sys_large_files=1 ac_cv_sys_file_offset_bits=64
+ HEIMDAL_LICENSE = BSD-3-Clause
+ HEIMDAL_LICENSE_FILES = LICENSE
+ HEIMDAL_CPE_ID_VALID = YES

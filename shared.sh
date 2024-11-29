@@ -8,7 +8,7 @@ HARDWARE_DEFCONFIG=configs/beaglebone_defconfig
 # The place we store customizations to the qemu configuration
 MODIFIED_QEMU_DEFCONFIG=base_external/configs/aesd_qemu_defconfig
 # The place we store customizations for the project current target
-MODIFIED_HARDWARE_DEFCONFIG=base_external/configs/aesd_beaglebone_defconfig
+MODIFIED_HARDWARE_DEFCONFIG=base_external/configs/sancloud_defconfig
 
 # The defconfig from the buildroot directory we use for the project
 # When changing this variable to switch between qemu/hardware you must
