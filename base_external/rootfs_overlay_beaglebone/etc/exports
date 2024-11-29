@@ -1,2 +1,2 @@
-/mnt/storage *(rw,sync,no_subtree_check)
+/mnt/storage *(rw,no_subtree_check)
 
