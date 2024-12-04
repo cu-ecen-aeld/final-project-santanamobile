@@ -1,0 +1,24 @@
+name: Manual Build Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    timeout-minutes: 600
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        env:
+          GIT_SSL_NO_VERIFY: true
+        with:
+          clean: false
+          submodules: 'recursive'
+      - uses: webfactory/ssh-agent@v0.5.3
+        with:
+            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        env:
+          GIT_SSH_COMMAND: "ssh -o StrictHostKeyChecking=no"
+      - name: Run build script
+        run: ./build.sh
