@@ -3,7 +3,7 @@
 # NGINX-WEBROOT
 #
 ##############################################################
-NGINX_WEBROOT_VERSION = '40d7880a442db16ecfcca8487510340dbec2bd70'
+NGINX_WEBROOT_VERSION = '272b082cf2f93a748e56366b482e0b0b0435b9b6'
 NGINX_WEBROOT_SITE = 'git@github.com:santanamobile/beaglenas.git'
 NGINX_WEBROOT_SITE_METHOD = git
 NGINX_WEBROOT_GIT_SUBMODULES = YES
