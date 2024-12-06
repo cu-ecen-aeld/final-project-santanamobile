@@ -1,0 +1,4 @@
+# BR2_ROOTFS_USERS_TABLES
+# name      password  uid   gid   group      home            shell      extra_groups
+flask       *         1001  1001  flask      /var/webserver  /bin/sh    disk,usb
+
