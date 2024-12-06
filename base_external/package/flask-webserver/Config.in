@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_FLASK_WEBSERVER
+	bool "flask-webserver"
+	help
+	  Flask webserver.
