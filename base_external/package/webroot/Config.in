@@ -1,0 +1,4 @@
+config BR2_PACKAGE_WEBROOT
+	bool "webroot"
+	help
+	  Static and dynamic files of the web interface.

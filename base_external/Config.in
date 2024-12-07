@@ -1,2 +1,2 @@
-source "$BR2_EXTERNAL_project_base_PATH/package/flask-webserver/Config.in"
-source "$BR2_EXTERNAL_project_base_PATH/package/nginx-webroot/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/webserver/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/webroot/Config.in"
