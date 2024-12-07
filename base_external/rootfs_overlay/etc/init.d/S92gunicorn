@@ -10,22 +10,21 @@
 # Description:       Manage the Gunicorn server for the Flask app
 ### END INIT INFO
 
-DAEMON=/usr/bin/gunicorn
+# cd /var/www/server
+# /usr/bin/gunicorn app:app -b localhost:8000
+
+DAEMON=gunicorn
+USER=flask
+GUNICORN=/usr/bin/$DAEMON
+PIDFILE=/var/run/$DAEMON.pid
+LOGFILE=/var/log/$DAEMON.log
 DAEMON_OPTS="app:app -b localhost:8000"
 WORKING_DIR="/var/www/server"
-USER=flask
-PIDFILE=/var/run/flaskapp.pid
-LOGFILE=/var/log/flaskapp.log
 
 start() {
-    echo "Starting Flask app..."
-    start-stop-daemon --start --background \
-        --chdir $WORKING_DIR \
-        --pidfile $PIDFILE \
-        --make-pidfile \
-        --user $USER \
-        --exec $DAEMON -- $DAEMON_OPTS \
-        >> $LOGFILE 2>&1
+	[ -n "$1" ] || printf 'Starting %s: ' "$DAEMON"
+    cd "$WORKING_DIR"
+    start-stop-daemon -S -b -q -p "$PIDFILE" -c "$USER" -x "$GUNICORN" -- $DAEMON_OPTS >> $LOGFILE 2>&1
     if [ $? -eq 0 ]; then
         echo "Flask app started successfully."
     else
@@ -34,8 +33,8 @@ start() {
 }
 
 stop() {
-    echo "Stopping Flask app..."
-    start-stop-daemon --stop --pidfile $PIDFILE
+	[ -n "$1" ] || printf 'Stopping %s: ' "$DAEMON"
+	start-stop-daemon -K -q -p "$PIDFILE" -x "$GUNICORN"
     if [ $? -eq 0 ]; then
         echo "Flask app stopped successfully."
         rm -f $PIDFILE
@@ -47,6 +46,7 @@ stop() {
 restart() {
     echo "Restarting Flask app..."
     stop
+    sleep 2
     start
 }
 
