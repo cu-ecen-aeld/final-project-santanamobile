@@ -1,5 +1,0 @@
-
-config BR2_PACKAGE_NGINX_WEBROOT
-	bool "nginx-webroot"
-	help
-	  Files of the web interface.
