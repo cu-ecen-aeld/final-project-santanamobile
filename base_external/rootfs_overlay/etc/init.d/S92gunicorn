@@ -1,0 +1,83 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          S92gunicorn
+# Required-Start:    $network $remote_fs
+# Required-Stop:     $network $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start Gunicorn for Flask app
+# Description:       Manage the Gunicorn server for the Flask app
+### END INIT INFO
+
+DAEMON=/usr/bin/gunicorn
+DAEMON_OPTS="app:app -b localhost:8000"
+WORKING_DIR="/var/www/server"
+USER=flask
+PIDFILE=/var/run/flaskapp.pid
+LOGFILE=/var/log/flaskapp.log
+
+start() {
+    echo "Starting Flask app..."
+    start-stop-daemon --start --background \
+        --chdir $WORKING_DIR \
+        --pidfile $PIDFILE \
+        --make-pidfile \
+        --user $USER \
+        --exec $DAEMON -- $DAEMON_OPTS \
+        >> $LOGFILE 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Flask app started successfully."
+    else
+        echo "Failed to start Flask app."
+    fi
+}
+
+stop() {
+    echo "Stopping Flask app..."
+    start-stop-daemon --stop --pidfile $PIDFILE
+    if [ $? -eq 0 ]; then
+        echo "Flask app stopped successfully."
+        rm -f $PIDFILE
+    else
+        echo "Failed to stop Flask app. Process might not be running."
+    fi
+}
+
+restart() {
+    echo "Restarting Flask app..."
+    stop
+    start
+}
+
+status() {
+    if [ -f $PIDFILE ]; then
+        PID=$(cat $PIDFILE)
+        if ps -p $PID > /dev/null 2>&1; then
+            echo "Flask app is running (PID $PID)."
+            exit 0
+        fi
+    fi
+    echo "Flask app is not running."
+    exit 1
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    status)
+        status
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+esac
+
