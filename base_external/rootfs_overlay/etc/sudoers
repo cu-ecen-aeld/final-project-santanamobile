@@ -1,2 +1,3 @@
+root	ALL=(ALL:ALL) ALL
 flask ALL=(ALL) NOPASSWD: /bin/umount, /sbin/halt, /sbin/reboot
 
