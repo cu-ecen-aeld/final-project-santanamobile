@@ -1,2 +1,2 @@
-/mnt/storage *(rw,no_subtree_check)
+/media/usb0 *(rw,no_subtree_check)
 

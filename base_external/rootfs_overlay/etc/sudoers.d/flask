@@ -1,2 +1,2 @@
-flask ALL=(ALL) NOPASSWD: /bin/umount
+flask ALL=(ALL) NOPASSWD: /bin/umount, /sbin/halt, /sbin/reboot
 
