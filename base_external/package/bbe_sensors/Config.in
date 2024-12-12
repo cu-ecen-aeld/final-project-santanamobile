@@ -1,0 +1,4 @@
+config BR2_PACKAGE_BBE_SENSORS
+	bool "bbe_sensors"
+	help
+	  Simple test apps for the BBE sensors
