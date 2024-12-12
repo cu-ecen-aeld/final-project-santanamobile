@@ -14,8 +14,8 @@ define AESD_ASSIGNMENTS_BUILD_CMDS
 endef
 
 define BBE_SENSORS_INSTALL_TARGET_CMDS
-    $(INSTALL) -d 0755 $(@D)/sc_mpu6050/mpu_reader $(TARGET_DIR)/bin
-    $(INSTALL) -d 0755 $(@D)/sc_st_pressure/pressure_reader $(TARGET_DIR)/bin
+    $(INSTALL) -m 0755 $(@D)/sc_mpu6050/mpu_reader $(TARGET_DIR)/bin
+    $(INSTALL) -m 0755 $(@D)/sc_st_pressure/pressure_reader $(TARGET_DIR)/bin
 endef
 
 $(eval $(generic-package))
