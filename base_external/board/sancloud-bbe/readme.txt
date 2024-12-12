@@ -1,11 +1,11 @@
-SanCloud BeagleBoneBlack
+SanCloud BBE (BeagleBone Enhanced)
 Texas Instuments AM335x Evaluation Module (TMDXEVM3358)
 
 Description
 ===========
 
 This configuration will build a complete image for the 
-SanCloud BeagleBoneBlack
+SanCloud BBE
 
 How to build it
 ===============
@@ -41,6 +41,7 @@ $ dd if=output/images/sdcard.img of=/dev/XXX
 Tested hardware
 ===============
 
-SanCloud BeagleBoneBlack
+SanCloud BBE (BeagleBone Enhanced)
 
 2024, Helder Santana <helder.bs.santana@gmail.com>
+
