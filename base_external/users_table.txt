@@ -1,2 +1,2 @@
 flask 1101 flask 1101 * /var/www - sudo,disk,cdrom,floppy,tape,plugdev Flask
-sancloud 1102 sancloud 1102 !=sancloudbbe - - sudo,shadow Sancloud NAS
+sancloud 1102 sancloud 1102 =sancloudbbe - - sudo,shadow Sancloud NAS

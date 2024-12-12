@@ -3,7 +3,7 @@
 # WEBSERVER
 #
 ##############################################################
-WEBSERVER_VERSION = '240f7d38efd2ab7af2e49cb344e780fdefa2785f'
+WEBSERVER_VERSION = '98c1e1fd9404c315f8d3e101f1a95cef99e5939b'
 WEBSERVER_SITE = 'git@github.com:santanamobile/beaglenas.git'
 WEBSERVER_SITE_METHOD = git
 WEBSERVER_GIT_SUBMODULES = YES
