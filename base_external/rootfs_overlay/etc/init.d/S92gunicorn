@@ -24,7 +24,7 @@ WORKING_DIR="/var/www/server"
 start() {
 	[ -n "$1" ] || printf 'Starting %s: ' "$DAEMON"
     cd "$WORKING_DIR"
-    start-stop-daemon -S -b -q -p "$PIDFILE" -c "$USER" -x "$GUNICORN" -- $DAEMON_OPTS >> $LOGFILE 2>&1
+    start-stop-daemon -S -b -q --make-pidfile -p "$PIDFILE" -c "$USER" -x "$GUNICORN" -- $DAEMON_OPTS >> $LOGFILE 2>&1
     if [ $? -eq 0 ]; then
         echo "Flask app started successfully."
     else
@@ -34,7 +34,11 @@ start() {
 
 stop() {
 	[ -n "$1" ] || printf 'Stopping %s: ' "$DAEMON"
-	start-stop-daemon -K -q -p "$PIDFILE" -x "$GUNICORN"
+    kill -9 $(cat /var/run/gunicorn.pid)
+            sleep 1
+
+    rm -f "$PIDFILE"
+
     if [ $? -eq 0 ]; then
         echo "Flask app stopped successfully."
         rm -f $PIDFILE
