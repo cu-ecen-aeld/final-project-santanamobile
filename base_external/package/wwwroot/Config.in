@@ -1,0 +1,7 @@
+config BR2_PACKAGE_WWWROOT
+	bool "wwwroot"
+	help
+		wwwroot.
+
+		Python-Flask backend for system functions.
+		Static and dynamic files of the web interface based on AdminLTE
