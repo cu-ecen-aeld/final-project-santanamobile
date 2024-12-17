@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-WWWROOT_VERSION = 'dd1859d8b1b2c5bc0d498b3cfad883f825b4959e'
+WWWROOT_VERSION = '7206ab032c54f2e9354fa510052b84157d018742'
 WWWROOT_SITE = 'git@github.com:santanamobile/beaglenas.git'
 WWWROOT_SITE_METHOD = git
 WWWROOT_GIT_SUBMODULES = YES

@@ -1,6 +1,0 @@
-config BR2_PACKAGE_WEBSERVER
-	bool "webserver"
-	help
-		Flask webserver.
-
-		Python backend for system functions.

@@ -1,7 +1,0 @@
-config BR2_PACKAGE_WEBROOT
-	bool "webroot"
-	depends on BR2_PACKAGE_WEBSERVER
-	help
-		Static and dynamic files of the web interface.
-
-		This interface based on AdminLTE
